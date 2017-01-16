@@ -507,5 +507,7 @@ buildvariants:
   display_name: "${ruby}"
   run_on:
     - debian81-test
+    - rhel72-zseries-test
+    - rhel71-power8-test
   tasks:
      - name: "test"
