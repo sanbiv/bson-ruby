@@ -523,12 +523,12 @@ axes:
 
 buildvariants:
 - matrix_name: "tests-all-rubies-all-os"
-  matrix_spec: { ruby: "*", os: "*" }
+  matrix_spec: { all-rubies: "*", all-os: "*" }
   display_name: "${ruby} ${os}"
   tasks:
      - name: "test"
 - matrix_name: "tests-special-os"
-  matrix_spec: { ruby: "latest-ruby", os: "special-os" }
+  matrix_spec: { latest-ruby: "latest-ruby", special-os: "special-os" }
   display_name: "${ruby} ${os}"
   tasks:
      - name: "test"
