@@ -404,7 +404,7 @@ tasks:
         - func: "run tests"
 
 axes:
-  - id: version
+  - id: "version"
     display_name: MongoDB Version
     values:
       - id: "latest"
@@ -431,8 +431,7 @@ axes:
         display_name: "2.4"
         variables:
            VERSION: "2.4"
-
-  - id: topology
+  - id: "topology"
     display_name: Topology
     values:
       - id: "standalone"
@@ -447,7 +446,7 @@ axes:
         display_name: Sharded Cluster
         variables:
            TOPOLOGY: "sharded_cluster"
-  - id: auth
+  - id: "auth"
     display_name: Authentication
     values:
       - id: "auth"
@@ -458,7 +457,7 @@ axes:
         display_name: NoAuth
         variables:
            AUTH: "noauth"
-  - id: ssl
+  - id: "ssl"
     display_name: SSL
     values:
       - id: "ssl"
@@ -469,7 +468,7 @@ axes:
         display_name: NoSSL
         variables:
            SSL: "nossl"
-  - id: all-os
+  - id: "all-os"
     display_name: OS
     values:
       - id: "debian"
@@ -481,7 +480,7 @@ axes:
       - id: "rhel70"
         display_name: "RHEL 7.0"
         run_on: rhel70-small
-  - id: special-os
+  - id: "special-os"
     display_name: OS
     values:
       - id: "rhelzseries"
@@ -490,7 +489,7 @@ axes:
       - id: "rhelpower"
         display_name: "RHEL 7.1 PowerPC"
         run_on: rhel71-power8-test
-  - id: all-rubies
+  - id: "all-rubies"
     display_name: Ruby Version
     values:
       - id: "ruby-1.9"
@@ -505,7 +504,7 @@ axes:
         display_name: ruby-2.3
         variables:
            RVM_RUBY: "ruby-2.3"
-  - id: latest-ruby
+  - id: "latest-ruby"
     display_name: Ruby Version
     values:
       - id: "ruby-2.3"
