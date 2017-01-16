@@ -469,6 +469,18 @@ axes:
         display_name: NoSSL
         variables:
            SSL: "nossl"
+  - id: os
+    display_name: OS
+    values:
+      - id: "debian"
+        display_name: "Debian 8.1 x86"
+        run_on: debian81-test
+      - id: "rhelzseries"
+        display_name: "RHEL 7.2 Z-Series"
+        run_on: rhel72-zseries-test
+      - id: "rhelpower"
+        display_name: "RHEL 7.1 PowerPC"
+        run_on: rhel71-power8-test
   - id: ruby
     display_name: Ruby Version
     values:
@@ -484,27 +496,18 @@ axes:
         display_name: ruby-2.3
         variables:
            RVM_RUBY: "ruby-2.3"
-      - id: "jruby-1.7"
-        display_name: jruby-1.7
-        variables:
-           RVM_RUBY: "jruby-1.7"
-      - id: "jruby"
-        display_name: jruby
-        variables:
-           RVM_RUBY: "jruby"
+#      - id: "jruby-1.7"
+#        display_name: jruby-1.7
+#        variables:
+#           RVM_RUBY: "jruby-1.7"
+#      - id: "jruby"
+#        display_name: jruby
+#        variables:
+#           RVM_RUBY: "jruby"
 
 buildvariants:
-
-#- name: debian
-#  display_name: Debian 8.1 x86
-#  run_on:
-#    - debian81-test
-#  tasks:
-#    - name: 'test'
 - matrix_name: "tests-debian"
-  matrix_spec: { ruby: "*" }
-  display_name: "${ruby}"
-  run_on:
-    - debian81-test
+  matrix_spec: { ruby: "*", os: "*" }
+  display_name: "${ruby} ${os}"
   tasks:
      - name: "test"
