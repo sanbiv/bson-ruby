@@ -393,25 +393,13 @@ pre:
 
 post:
   # Removed, causing timeouts
-  # - func: "upload working dir"
+   - func: "upload working dir"
   - func: "upload mo artifacts"
   - func: "upload test results"
   - func: "cleanup"
 
 tasks:
-
-#    # Compile / check build variant
-#    - name: static-analysis
-#      commands:
-#        - func: "exec script"
-#          vars:
-#            file: ".evergreen/compile.sh"
-#        - func: "upload build"
-
     - name: "test"
-#      depends_on:
-#        - variant: "static-checks"
-#          name: "static-analysis"
       commands:
         - func: "run tests"
 
@@ -484,14 +472,26 @@ axes:
   - id: ruby
     display_name: Ruby Version
     values:
-      - id: "ruby-2.3.2"
-        display_name: ruby-2.3.2
+      - id: "ruby-1.9"
+        display_name: ruby-1.9
         variables:
-           RVM_RUBY: "ruby-2.3.2"
-      - id: "default"
-        display_name: default
+           RVM_RUBY: "ruby-1.9"
+      - id: "ruby-2.0"
+        display_name: ruby-2.0
         variables:
-           RUBY: "default"
+           RVM_RUBY: "ruby-2.0"
+      - id: "ruby-2.3"
+        display_name: ruby-2.3
+        variables:
+           RVM_RUBY: "ruby-2.3"
+      - id: "jruby-1.7"
+        display_name: jruby-1.7
+        variables:
+           RVM_RUBY: "jruby-1.7"
+      - id: "jruby"
+        display_name: jruby
+        variables:
+           RVM_RUBY: "jruby"
 
 buildvariants:
 
@@ -501,13 +501,10 @@ buildvariants:
 #    - debian81-test
 #  tasks:
 #    - name: 'test'
-
 - matrix_name: "tests-debian"
-  matrix_spec: { ruby: "ruby-2.3.2" }
+  matrix_spec: { ruby: "*" }
   display_name: "${ruby}"
   run_on:
     - debian81-test
-    - rhel72-zseries-test
-    - rhel71-power8-test
   tasks:
      - name: "test"
