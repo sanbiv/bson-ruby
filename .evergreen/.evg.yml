@@ -474,12 +474,12 @@ axes:
       - id: "debian"
         display_name: "Debian 8.1 x86"
         run_on: debian81-test
-      - id: "ubuntu-14.04"
-        display_name: "Ubuntu 14.04"
-        run_on: ubuntu1404-test
-      - id: "rhel70"
-        display_name: "RHEL 7.0"
-        run_on: rhel70-small
+#      - id: "ubuntu-14.04"
+#        display_name: "Ubuntu 14.04"
+#        run_on: ubuntu1404-test
+#      - id: "rhel70"
+#        display_name: "RHEL 7.0"
+#        run_on: rhel70-small
   - id: "special-os"
     display_name: OS
     values:
