@@ -474,12 +474,12 @@ axes:
       - id: "debian"
         display_name: "Debian 8.1 x86"
         run_on: debian81-test
-#      - id: "ubuntu-14.04"
-#        display_name: "Ubuntu 14.04"
-#        run_on: ubuntu1404-test
-#      - id: "rhel70"
-#        display_name: "RHEL 7.0"
-#        run_on: rhel70-small
+      - id: "ubuntu-14.04"
+        display_name: "Ubuntu 14.04"
+        run_on: ubuntu1404-test
+      - id: "rhel70"
+        display_name: "RHEL 7.0"
+        run_on: rhel70-small
   - id: "special-os"
     display_name: OS
     values:
@@ -492,18 +492,26 @@ axes:
   - id: "all-rubies"
     display_name: Ruby Version
     values:
-      - id: "ruby-1.9"
-        display_name: ruby-1.9
+      - id: "ruby-1.9.3"
+        display_name: ruby-1.9.3
         variables:
-           RVM_RUBY: "ruby-1.9"
-      - id: "ruby-2.0"
-        display_name: ruby-2.0
+           RVM_RUBY: "ruby-1.9.3"
+      - id: "ruby-2.0.0"
+        display_name: ruby-2.0.0
         variables:
-           RVM_RUBY: "ruby-2.0"
-      - id: "ruby-2.3"
-        display_name: ruby-2.3
+           RVM_RUBY: "ruby-2.0.0"
+      - id: "ruby-2.3.3"
+        display_name: ruby-2.3.3
         variables:
-           RVM_RUBY: "ruby-2.3"
+           RVM_RUBY: "ruby-2.3.3"
+#      - id: "jruby-1.7"
+#        display_name: jruby-1.7
+#        variables:
+#           RVM_RUBY: "jruby-1.7"
+#      - id: "jruby-9.1"
+#        display_name: jruby-9.1
+#        variables:
+#           RVM_RUBY: "jruby-9.1"
   - id: "latest-ruby"
     display_name: Ruby Version
     values:
@@ -526,8 +534,8 @@ buildvariants:
   display_name: "${all-rubies} ${all-os}"
   tasks:
      - name: "test"
-- matrix_name: "tests-special-os"
-  matrix_spec: { latest-ruby: "*", special-os: "*" }
-  display_name: "${latest-ruby} ${special-os}"
-  tasks:
-     - name: "test"
+#- matrix_name: "tests-special-os"
+#  matrix_spec: { latest-ruby: "*", special-os: "*" }
+#  display_name: "${latest-ruby} ${special-os}"
+#  tasks:
+#     - name: "test"
